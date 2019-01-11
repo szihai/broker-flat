@@ -1,7 +1,7 @@
 
 
 ## Introduction
-
+In the age of micro services, we often need to test our containers locally. But, even on the same host, if you use `docker run` on individual containers, they won't be able to communicate with each other without proper networking setup. Just with Docker community version, there are `bridge, host, overlay, macvlan` , etc. It is cubersome to manage these networks and sometimes they even require code changes.
 ## Demo setup
 The demo has 3 parts: An RSocket broker, an RSocket server that answers the query and an RSocket client with is a web server that listens to http requests and dispatches the request to the server.
 ![diagram](diagram.png)
