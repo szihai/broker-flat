@@ -1,18 +1,23 @@
 
 
 ## Introduction
-For developers in the age of micro services, we often need to test our containers locally. But, even on the same host, if you use `docker run` on individual containers, they won't be able to communicate with each other without proper networking setup. Just with Docker community version, there are `bridge, host, overlay, macvlan` , etc. It is cumbersome to manage these networks . And sometimes they even require code or configuration changes. The question we need to ask is : Why? Why should we care about the different docker networking model? Or docker networking plugins? All we want is app to talk to another.
+For developers in the age of micro services, we often need to test our containers locally. But, even on the same host, if you use `docker run` on individual containers, they won't be able to communicate with each other without proper networking setup.  
+
+Just with Docker community version, there are `bridge, host, overlay, macvlan` , etc. It is cumbersome to manage these networks . And sometimes they even require code or configuration changes. 
+
+The question we need to ask is : Why? Why should we care about the different docker networking model? Or docker networking plugins? All we want is app to talk to another.
+
 In this demo, you can try out one use case of RSocket Broker, which simplifies Docker networking model.
 ## Demo setup
-The demo has 3 parts: An RSocket broker, an RSocket server that answers the query and an RSocket client with is a web server that listens to http requests and dispatches the request to the server.
+The demo has 3 parts: An RSocket broker, an RSocket server that answers the query and an RSocket client with is a web server that listens to http requests and dispatches the request to the server.   
 ![diagram](diagram.png)
-All three parts are in Docker images.
-Next, let's see how to deploy them.
+All three parts are in Docker images.   
+Next, let's see how to deploy them.   
 
 ## Simple steps
 
-This is the simple version where most demos will be wrapped up with: Docker compose.
-"By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name."
+This is the simple version where most demos will be wrapped up with: Docker compose.   
+"By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name."   
 
 * `git clone https://github.com/szihai/broker-flat.git`
 * `cd broker-flat`
@@ -22,7 +27,8 @@ Now let's test the result:
 * `curl http://localhost:8181/user/2`   
 Not suprisingly, you can see the result in the form of json code : 
 `{"id":2,"nick":"Otha Kovacek"}`   
-* Stop the containers: `docker-compose down`
+* Stop the containers:     
+`docker-compose down`
 
 Next, let's examine the true capacity of the RSocket Broker.
 ## Deploy regardless of the networking
@@ -36,7 +42,11 @@ Now let's test the result:
 Again, the result should be the same.
 
 ## Under the hood
-RSocket is an application protocol implementing Reactive Streams. For more information, please check out this [link](rsocket.io/).
+RSocket is an application protocol implementing [Reactive Streams](https://en.wikipedia.org/wiki/Reactive_Streams). For more information, please check out this [link](rsocket.io/).   
+The RSocket Broker, by its name, has two features: It is a broker just like other brokers and it is implenting reactive streams.   
+So why not other brokers? Because other brokers are not easy to set up. They need zookeeper or other cluster management tools.   
+Whereis the RSocket broker is pretty simple to connect to. The connection is easy to set up, just like connecting to any server.      
+Now let's try to deploy your own broker.   
 ## Deploy your own broker
 
 ## Try again
