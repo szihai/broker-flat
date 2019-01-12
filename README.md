@@ -42,14 +42,14 @@ Now let's test the result:
 Again, the result should be the same.
 
 ## Under the hood
-RSocket is an application protocol implementing [Reactive Streams](https://en.wikipedia.org/wiki/Reactive_Streams). For more information, please check out this [link](rsocket.io/).   
-The RSocket Broker, by its name, has two features: It is a broker just like other brokers and it is implenting reactive streams.   
-So why not other brokers? Because other brokers are not easy to set up. They need zookeeper or other cluster management tools.   
-Whereis the RSocket broker is pretty simple to connect to. The connection is easy to set up, just like connecting to any server.      
+RSocket is an application protocol implementing [Reactive Streams](https://en.wikipedia.org/wiki/Reactive_Streams).    
+The RSocket Broker, by its name, has two features: It is a broker just like other brokers and it is implenting reactive streams.  
+The broker is just like router. It dispatches traffic. So why not other brokers?    
+Because other brokers are not easy to set up. They need zookeeper or other cluster management tools. In the end you are better off using Docker networks. Unless, of course your code needs a message broker.    
+Whereis the RSocket broker is pretty simple to connect to. The connection is just like connecting to any server. And all this thanks to the great design of RSocket protocol and its communication models. To learn more, please check out [RSocket](rsocket.io/).
+
 Now let's try to deploy your own broker.   
 ## Deploy your own broker
-
-## Try again
 
 
 
