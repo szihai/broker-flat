@@ -44,14 +44,20 @@ Again, the result should be the same.
 ## Under the hood
 RSocket is an application protocol implementing [Reactive Streams](https://en.wikipedia.org/wiki/Reactive_Streams).    
 The RSocket Broker, by its name, has two features: It is a broker just like other brokers and it is implenting reactive streams.  
-The broker is just like router. It dispatches traffic. So why not other brokers?    
-Because other brokers are not easy to set up. They need zookeeper or other cluster management tools. In the end you are better off using Docker networks. Unless, of course your code needs a message broker.    
+
+The broker is just like a router. It dispatches traffic. So why not other brokers? Like, for example, Kafka.   
+It turns that other brokers are not easy to set up. Your client is joining a cluster. And there are steps needed to manage that. In the end you are better off using Docker networks.    
 Whereis the RSocket broker is pretty simple to connect to. The connection is just like connecting to any server. And all this thanks to the great design of RSocket protocol and its communication models. To learn more, please check out [RSocket](rsocket.io/).
 
 Now let's try to deploy your own broker.   
-## Deploy your own broker
 
+## Deploy your own broken
+We are not going to get into the details of the deployment. You can try it on a VM, or run it in another Docker engine or deploy it in Kubernetes cluster. All we need in the end is an accesible ip and port. 
 
+Repeat the steps in the previous section, replacing the the commands using your own `ip:port`. And it should yield the same results.
+
+## Conclulsion
+Networking is complicated. But by no means it should affect how programmers write or test the applications. By using an RSocket Broker, we can bypass the complexicity as long as there is basic connectivity.
 
 ## License
 Please refer to the [License](LICENSE) file.
