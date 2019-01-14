@@ -1,0 +1,31 @@
+version: "3"
+services:
+  rsocket-broker:
+    image: rsocket/rsocket-broker
+    ports:
+      - "9999:9999"
+      - "10000:10000"
+    expose:
+      - 9999
+      - 10000
+
+  rsocket-server:
+    image: rsocket/rsocket-server
+    depends_on:
+      - rsocket-broker
+    links:
+      - rsocket-broker
+    environment:
+      RSOCKET_BROKERS: "tcp://rsocket-broker:9999"
+
+  rsocket-client:
+    image: rsocket/rsocket-client
+    ports:
+      - "8181:8181"
+    depends_on:
+      - rsocket-broker
+      - rsocket-server
+    links:
+      - rsocket-broker
+    environment:
+      RSOCKET_BROKERS: "tcp://rsocket-broker:9999"
