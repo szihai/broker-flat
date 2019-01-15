@@ -10,7 +10,8 @@ In this demo, we will showcase one use case of RSocket Broker, which simplifies 
 ## Demo setup
 The demo has 3 parts: An RSocket broker, an RSocket server that answers the query and an RSocket client with is a web server that listens to http requests and dispatches the request to the server.   
 ![diagram](diagram.png)
-All three parts are in Docker images.   
+All three parts are in Docker images.  
+
 Next, let's see how to deploy them.   
 
 ## Simple steps
@@ -53,7 +54,8 @@ Now let's try to deploy your own broker.
 
 ## Deploy your own broken
 We are not going to get into the details of the deployment. You can try it on a VM, or run it in another Docker engine or deploy it in Kubernetes cluster. All we need in the end is an accesible ip and port. 
-**If you use Kubernetes, remember to use Load Balancer instead of Ingress to open up the access since Ingress only takes HTTP traffice.
+
+**If you use Kubernetes, remember to use Load Balancer instead of Ingress to open up the access since Ingress only takes HTTP traffice.**
 
 Repeat the steps in the previous section, replacing the the commands using your own `ip:port`. And it should yield the same results.
 
