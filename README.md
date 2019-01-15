@@ -35,8 +35,8 @@ Next, let's examine the solution with RSocket Broker.
 ## Deploy regardless of the networking
 We have deployed a sample broker in public cloud, with ip:port `47.254.15.246:9999`. When we start the other two containers, we'll pass this as environmental variables. And then it doesn't matter where you run your RSocket server and client. They will be able to talk to each other.
 
-* `docker run -e RSOCKET_BROKERS=tcp://47.254.15.246:9999 rsocket/rsocket-server`
-* `docker run -e RSOCKET_BROKERS=tcp://47.254.15.23:9999 -p 8181:8181 rsocket/rsocket-client`
+* `docker run -e RSOCKET_BROKERS=tcp://47.254.15.246:9999 szihai/rsocket-server:latest`
+* `docker run -e RSOCKET_BROKERS=tcp://47.254.15.23:9999 -p 8181:8181 szihai/rsocket-client:latest`
 The port 8181 is open for web traffic, not for RSocket.
 Now let's test the result:  
 * `curl http://localhost:8181/user/2`   
