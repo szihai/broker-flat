@@ -1,7 +1,7 @@
 version: "3"
 services:
   rsocket-broker:
-    image: rsocket/rsocket-broker
+    image: szihai/rsocket-broker:latest
     ports:
       - "9999:9999"
       - "10000:10000"
@@ -10,7 +10,7 @@ services:
       - 10000
 
   rsocket-server:
-    image: rsocket/rsocket-server
+    image: szihai/rsocket-server:latest
     depends_on:
       - rsocket-broker
     links:
@@ -19,7 +19,7 @@ services:
       RSOCKET_BROKERS: "tcp://rsocket-broker:9999"
 
   rsocket-client:
-    image: rsocket/rsocket-client
+    image: szihai/rsocket-client:latest
     ports:
       - "8181:8181"
     depends_on:
