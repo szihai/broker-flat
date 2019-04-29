@@ -52,7 +52,7 @@ Whereis the RSocket broker is pretty simple to connect to. The connection is jus
 
 Now let's try to deploy your own broker.   
 
-## Deploy your own broken
+## Deploy your own broker
 We are not going to get into the details of the deployment. You can try it on a VM, or run it in another Docker engine or deploy it in Kubernetes cluster. All we need in the end is an accesible ip and port. 
 
 **If you use Kubernetes, remember to use Load Balancer instead of Ingress to open up the access since Ingress only takes HTTP traffice.**
